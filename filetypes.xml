@@ -1,7 +1,9 @@
 <application>
   <component name="FileTypeManager" version="17">
     <extensionMap>
+      <mapping ext="wav" type="ARCHIVE" />
       <mapping ext="webp" type="Image" />
+      <mapping pattern="Blastoise.wav" type="Native" />
     </extensionMap>
   </component>
 </application>
