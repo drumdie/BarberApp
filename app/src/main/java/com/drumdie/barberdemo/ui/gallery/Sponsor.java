@@ -1,8 +1,11 @@
 package com.drumdie.barberdemo.ui.gallery;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 import java.net.URL;
 
-public class Sponsor {
+public class Sponsor implements Parcelable {
     private String name;
     private String url;
     private int imageId;
@@ -37,4 +40,35 @@ public class Sponsor {
     public void setImageId(int imageId) {
         this.imageId = imageId;
     }
+
+    protected Sponsor(Parcel in) {
+        name = in.readString();
+        url = in.readString();
+        imageId = in.readInt();
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeString(name);
+        dest.writeString(url);
+        dest.writeInt(imageId);
+    }
+
+    @SuppressWarnings("unused")
+    public static final Parcelable.Creator<Sponsor> CREATOR = new Parcelable.Creator<Sponsor>() {
+        @Override
+        public Sponsor createFromParcel(Parcel in) {
+            return new Sponsor(in);
+        }
+
+        @Override
+        public Sponsor[] newArray(int size) {
+            return new Sponsor[size];
+        }
+    };
 }

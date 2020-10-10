@@ -32,7 +32,7 @@
                 android:layout_weight="1"
                 android:gravity="center"
                 android:padding="16dp"
-                android:text="horarios"
+                android:text="DIAS"
                 android:textStyle="bold"
                 android:textSize="16sp"
                 android:textColor="@android:color/white"/>
@@ -47,7 +47,7 @@
                 android:layout_weight="1"
                 android:gravity="center"
                 android:padding="16dp"
-                android:text="informacion"
+                android:text="Horarios"
                 android:textColor="@android:color/white"
                 android:textSize="16sp"
                 android:textStyle="bold"/>
@@ -55,27 +55,178 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:paddingStart="8dp"
+            android:paddingTop="8dp"
             android:orientation="vertical">
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Horarios"/>
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Horarios"/>
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Horarios"/>
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Horarios"/>
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Horarios"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/attention_schedule"
+                    android:textStyle="bold"
+                    android:shadowColor="@color/colorAccent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="Domingo"
+                    />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/attention_schedule"
+                    android:textStyle="bold"
+                    android:shadowColor="@color/colorAccent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="@string/closed"/>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/attention_schedule"
+                    android:textStyle="bold"
+                    android:shadowColor="@color/colorAccent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="Lunes"
+                    />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/attention_schedule"
+                    android:textStyle="bold"
+                    android:shadowColor="@color/colorAccent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="@string/closed"/>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/attention_schedule"
+                    android:textStyle="bold"
+                    android:shadowColor="@color/colorAccent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="Martes"
+                    />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/attention_schedule"
+                    android:textStyle="bold"
+                    android:shadowColor="@color/colorAccent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="@string/timeline"/>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/attention_schedule"
+                    android:textStyle="bold"
+                    android:shadowColor="@color/colorAccent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="Miércoles"
+                    />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/attention_schedule"
+                    android:textStyle="bold"
+                    android:shadowColor="@color/colorAccent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="@string/timeline"/>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/attention_schedule"
+                    android:textStyle="bold"
+                    android:shadowColor="@color/colorAccent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="Jueves"
+                    />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/attention_schedule"
+                    android:textStyle="bold"
+                    android:shadowColor="@color/colorAccent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="@string/timeline"/>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/attention_schedule"
+                    android:textStyle="bold"
+                    android:shadowColor="@color/colorAccent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="Viernes"
+                    />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/attention_schedule"
+                    android:textStyle="bold"
+                    android:shadowColor="@color/colorAccent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="@string/timeline"/>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/attention_schedule"
+                    android:textStyle="bold"
+                    android:shadowColor="@color/colorAccent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="Sábado"
+                    />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/attention_schedule"
+                    android:textStyle="bold"
+                    android:shadowColor="@color/colorAccent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="@string/timeline"/>
+            </LinearLayout>
+
         </LinearLayout>
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"

@@ -12,10 +12,10 @@
         tools:layout="@layout/fragment_home" />
 
     <fragment
-        android:id="@+id/nav_gallery"
-        android:name="com.drumdie.barberdemo.ui.gallery.GalleryFragment"
-        android:label="@string/menu_gallery"
-        tools:layout="@layout/fragment_gallery" />
+        android:id="@+id/nav_gallery_sponsors"
+        android:name="com.drumdie.barberdemo.ui.gallery.GallerySponsorsFragment"
+        android:label="@string/menu_sponsors"
+        tools:layout="@layout/fragment_gallery_sponsors" />
 
     <fragment
         android:id="@+id/nav_slideshow"

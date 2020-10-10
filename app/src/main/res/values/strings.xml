@@ -8,8 +8,10 @@
     <string name="action_settings">Ajustes</string>
 
     <string name="menu_home">Barberia 65</string>
-    <string name="menu_gallery">Galería</string>
+    <string name="menu_sponsors">Sponsors</string>
     <string name="menu_map">Mapa</string>
     <string name="menu_inicio">Inicio</string>
     <string name="text_to_barberia">Hola, quisiera arreglar un turno en la barbería!</string>
+    <string name="timeline">11AM - 7PM</string>
+    <string name="closed">Cerrado</string>
 </resources>
