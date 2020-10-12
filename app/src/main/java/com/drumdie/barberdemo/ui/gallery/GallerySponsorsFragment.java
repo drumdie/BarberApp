@@ -32,12 +32,15 @@ public class GallerySponsorsFragment extends Fragment {
             sponsorRecycler.setLayoutManager(gridLayoutManager); //sino GridLayourManager(contexto, cantidad de colunnas a mostrar)
 
             ArrayList<Sponsor> sponsorList = new ArrayList<>();
-            sponsorList.add(new Sponsor("Mr.Blonde", "https://www.instagram.com/__mr.blonde__/", R.drawable.sponsor_mrblonde));
-            sponsorList.add(new Sponsor("Los Tabaleros", "https://www.instagram.com/lostabaleros/", R.drawable.sponsor_lostabaleros));
-            sponsorList.add(new Sponsor("Perez y Punto", "https://perezypunto.com.ar/", R.drawable.sponsor_perezypunto));
-            sponsorList.add(new Sponsor("Julian Inksane", "https://www.instagram.com/julian.inksane/", R.drawable.sponsor_julian_inksane));
-            sponsorList.add(new Sponsor("Mam Pastelería", "https://www.instagram.com/mam.pasteleria/", R.drawable.sponsor_mampasteleria));
-            SponsorAdapter sponsorAdapter = new SponsorAdapter(getActivity(), sponsorList);
+            sponsorList.add(new Sponsor("Descuentos Especiales", "https://www.instagram.com/__mr.blonde__/", R.drawable.sponsor_mrblonde));
+            sponsorList.add(new Sponsor("Barbería Oficial - Los Tabaleros", "https://www.instagram.com/lostabaleros/", R.drawable.sponsor_lostabaleros));
+            sponsorList.add(new Sponsor("Descuentos Especiales", "https://perezypunto.com.ar/", R.drawable.sponsor_perezypunto));
+            sponsorList.add(new Sponsor("Descuentos Especiales", "https://www.instagram.com/julian.inksane/", R.drawable.sponsor_julian_inksane));
+            sponsorList.add(new Sponsor("Descuento de 20% en cualquier producto", "https://www.instagram.com/mam.pasteleria/", R.drawable.sponsor_mampasteleria));
+            sponsorList.add(new Sponsor("Descuentos Especiales", "https://www.instagram.com/__mr.blonde__/", R.drawable.sponsor_mrblonde));
+            sponsorList.add(new Sponsor("Descuentos Especiales", "https://www.instagram.com/__mr.blonde__/", R.drawable.sponsor_mrblonde));
+
+        SponsorAdapter sponsorAdapter = new SponsorAdapter(getActivity(), sponsorList);
             sponsorRecycler.setAdapter(sponsorAdapter);
 
             sponsorAdapter.setOnSponsorClickListener(new SponsorAdapter.OnSponsorClickListener() {
