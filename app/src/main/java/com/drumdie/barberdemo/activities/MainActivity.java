@@ -1,14 +1,15 @@
-package com.drumdie.barberdemo;
+package com.drumdie.barberdemo.activities;
 
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Bundle;
-import android.os.Handler;
 import android.view.View;
 import android.view.Menu;
+import android.widget.Button;
 import android.widget.Toast;
 
+import com.drumdie.barberdemo.R;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.navigation.NavigationView;
 
@@ -26,7 +27,6 @@ public class MainActivity extends AppCompatActivity {
     private String ownerPhoneNumber= "+549113181-5561";
     //public static int CALL_PHONE_REQUEST_CODE = 0;
     private AppBarConfiguration mAppBarConfiguration;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,17 +41,28 @@ public class MainActivity extends AppCompatActivity {
                 isWhatsappInstalled();
             }
         });
+
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         NavigationView navigationView = findViewById(R.id.nav_view);
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
         mAppBarConfiguration = new AppBarConfiguration.Builder(
-                R.id.nav_home, R.id.nav_gallery_sponsors, R.id.nav_slideshow)
+                R.id.nav_home, R.id.nav_gallery_sponsors, R.id.nav_slideshow,R.id.nav_services_layout, R.id.nav_membership_layout)
                 .setDrawerLayout(drawer)
                 .build();
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
         NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
         NavigationUI.setupWithNavController(navigationView, navController);
+
+        Button membershipButton = findViewById(R.id.membership_Button);
+        membershipButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this, RegistrationActivity.class);
+                startActivity(intent);
+            }
+        });
+
 
   }
 
@@ -96,20 +107,6 @@ public class MainActivity extends AppCompatActivity {
             startActivity(goToMarket);
         }
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
     /*
     private void makeCall(){

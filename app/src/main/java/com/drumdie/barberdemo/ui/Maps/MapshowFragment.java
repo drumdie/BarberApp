@@ -1,16 +1,14 @@
 package com.drumdie.barberdemo.ui.Maps;
 
 import android.content.DialogInterface;
-import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.location.Location;
-import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -33,6 +31,10 @@ import com.google.android.gms.maps.model.BitmapDescriptor;
 import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+
+import java.math.BigDecimal;
+import java.math.RoundingMode;
 
 import static android.Manifest.permission.ACCESS_FINE_LOCATION;
 
@@ -43,10 +45,8 @@ public class MapshowFragment extends Fragment implements GoogleApiClient.Connect
     private GoogleMap mMap;
     private SupportMapFragment mapFragment;
     private Location userLocation;
-    private static final int RANGE_TO_DISPLAY_EQ_MARKER_IN_METERS = 1000;
-    private Double eqLat;
-    private Double eqLong;
-    private String eqMag;
+    private static final int RANGE_TO_DISPLAY_BARBERSHOP_MARKER_IN_METERS = 1000;
+
     ////////////////////////////////////////////////////////////////////
     private SlideshowViewModel slideshowViewModel;
 
@@ -54,8 +54,8 @@ public class MapshowFragment extends Fragment implements GoogleApiClient.Connect
                              ViewGroup container, Bundle savedInstanceState) {
         slideshowViewModel =
                 ViewModelProviders.of(this).get(SlideshowViewModel.class);
-        View root = inflater.inflate(R.layout.fragment_slideshow, container, false);
-      //final TextView textView = root.findViewById(R.id.text_slideshow);
+        View root = inflater.inflate(R.layout.fragment_mapshow, container, false);
+
         slideshowViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
             @Override
             public void onChanged(@Nullable String s) {
@@ -71,9 +71,6 @@ public class MapshowFragment extends Fragment implements GoogleApiClient.Connect
         return root;
 
     }
-
-
-
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -82,10 +79,6 @@ public class MapshowFragment extends Fragment implements GoogleApiClient.Connect
                 .addOnConnectionFailedListener(this)
                 .addApi(LocationServices.API)
                 .build();
-
-       /* Intent intent = new Intent(android.content.Intent.ACTION_VIEW,
-        Uri.parse("https://www.google.com/maps/place/Barber%C3%ADa+65/@-34.6159706,-58.431405,17z/data=!4m5!3m4!1s0x95bcca435404abcd:0x58875c333d1b698d!8m2!3d-34.615975!4d-58.429211"));
-        startActivity(intent);*/
     }
 
     @Override
@@ -126,10 +119,6 @@ public class MapshowFragment extends Fragment implements GoogleApiClient.Connect
             /*
              */
             mapFragment.getMapAsync(this);
-
-
-
-
         }
     }
 
@@ -157,9 +146,6 @@ public class MapshowFragment extends Fragment implements GoogleApiClient.Connect
         }
     }
 
-
-
-
     @Override
     public void onConnectionSuspended(int i) {
 
@@ -178,16 +164,52 @@ public class MapshowFragment extends Fragment implements GoogleApiClient.Connect
         }
     };
 
+    public static String convertMeterToKilometer(float totalDistance) {
+        double ff = totalDistance / 1000;
+        BigDecimal bd = BigDecimal.valueOf(ff);
+        bd = bd.setScale(2, RoundingMode.HALF_UP);
+        return String.valueOf(bd.intValue());
+    }
+
     @Override
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
-        BitmapDescriptor BarberiaMarkerIcon = BitmapDescriptorFactory.fromResource(R.drawable.barberia_map_icon);
+        BitmapDescriptor BarberiaMarkerIcon = BitmapDescriptorFactory.fromResource(R.drawable.iconshop4);
         final LatLng BarberiaLatLng = new LatLng(-34.615825, -58.429200);
         final LatLng userLatLng = new LatLng(userLocation.getLatitude(), userLocation.getLongitude());
+        final FloatingActionButton locButton = getActivity().findViewById(R.id.miLocationButton);
+        final FloatingActionButton barberLocationButton = getActivity().findViewById(R.id.barberLocationButton);
+        Location barberShopLoc = new Location("") ;
+        barberShopLoc.setLatitude(BarberiaLatLng.latitude);
+        barberShopLoc.setLongitude(BarberiaLatLng.longitude);
+
+        final float distanceToBarbershop = Math.round(barberShopLoc.distanceTo(userLocation));  // compilador convertirlo a int redondeando
         mMap.addMarker(new MarkerOptions().position(userLatLng).title("Mi ubicación"));
 
         mMap.addMarker(new MarkerOptions().position(BarberiaLatLng).title("Barbería 65 ")
                 .icon(BarberiaMarkerIcon));
-        mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(BarberiaLatLng,17));
+        mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(BarberiaLatLng,14));
+
+        locButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(userLatLng,14));
+                Toast.makeText(getActivity(), "Mi Ubicación ", Toast.LENGTH_SHORT).show();
+
+            }
+        });
+        barberLocationButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(BarberiaLatLng,16));
+                if(distanceToBarbershop < RANGE_TO_DISPLAY_BARBERSHOP_MARKER_IN_METERS ) { // mts
+                    Toast.makeText(getActivity(), "BARBERIA 65 " + "\nDistancia:  "+ distanceToBarbershop + " mts", Toast.LENGTH_SHORT).show();
+                }
+                else{
+                    Toast.makeText(getActivity(), "BARBERIA 65 " + "\nDistancia:  " + convertMeterToKilometer(distanceToBarbershop) + " Kms", Toast.LENGTH_SHORT).show();
+
+                }
+            }
+        });
     }
 }

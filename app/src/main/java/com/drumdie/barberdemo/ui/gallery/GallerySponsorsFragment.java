@@ -18,13 +18,10 @@ import com.drumdie.barberdemo.R;
 import java.util.ArrayList;
 
 public class GallerySponsorsFragment extends Fragment {
-    //public static final String SPONSOR_KEY = "sponsor";
-    private GalleryViewModel galleryViewModel;
-
     @Override
     public View onCreateView (@NonNull LayoutInflater inflater,
                 ViewGroup container, Bundle savedInstanceState){
-            galleryViewModel = ViewModelProviders.of(this).get(GalleryViewModel.class);
+
             final View root = inflater.inflate(R.layout.fragment_gallery_sponsors, container, false);
 
             RecyclerView sponsorRecycler = root.findViewById(R.id.activity_main_sponsor_recycler);
@@ -40,7 +37,7 @@ public class GallerySponsorsFragment extends Fragment {
             sponsorList.add(new Sponsor("Descuentos Especiales", "https://www.instagram.com/__mr.blonde__/", R.drawable.sponsor_mrblonde));
             sponsorList.add(new Sponsor("Descuentos Especiales", "https://www.instagram.com/__mr.blonde__/", R.drawable.sponsor_mrblonde));
 
-        SponsorAdapter sponsorAdapter = new SponsorAdapter(getActivity(), sponsorList);
+            SponsorAdapter sponsorAdapter = new SponsorAdapter(getActivity(), sponsorList);
             sponsorRecycler.setAdapter(sponsorAdapter);
 
             sponsorAdapter.setOnSponsorClickListener(new SponsorAdapter.OnSponsorClickListener() {

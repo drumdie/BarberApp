@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "698653153481",
+    "firebase_url": "https://mibarberia-93807.firebaseio.com",
+    "project_id": "mibarberia-93807",
+    "storage_bucket": "mibarberia-93807.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:698653153481:android:b8feb101687dc843d01518",
+        "android_client_info": {
+          "package_name": "com.drumdie.barberdemo"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "698653153481-nh7fe3927sslgasuqu44o8t2qbe5v3vh.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.drumdie.barberdemo",
+            "certificate_hash": "0c7f4dcbde3e90d966c07fce629107cdd1bde73c"
+          }
+        },
+        {
+          "client_id": "698653153481-p5m5ej9hl0dfnlfkodjsemnad1ta7c1r.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAL4-j_poJ__S_o1iFnrIDY1l-SGDbBUr0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "698653153481-p5m5ej9hl0dfnlfkodjsemnad1ta7c1r.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

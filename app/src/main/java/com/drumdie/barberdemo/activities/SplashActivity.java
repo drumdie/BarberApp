@@ -1,4 +1,4 @@
-package com.drumdie.barberdemo;
+package com.drumdie.barberdemo.activities;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -7,6 +7,7 @@ import android.util.Log;
 import android.view.Window;
 import android.view.WindowManager;
 
+import com.drumdie.barberdemo.R;
 
 
 public class SplashActivity extends Activity {

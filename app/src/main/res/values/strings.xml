@@ -14,4 +14,7 @@
     <string name="text_to_barberia">Hola, quisiera arreglar un turno en la barbería!</string>
     <string name="timeline">11AM - 7PM</string>
     <string name="closed">Cerrado</string>
+    <string name="mi_ubicacion">Mi Ubicación</string>
+    <string name="tradition_barber_text"><![CDATA[60 años de profesión, corte tradicional a navaja y toda la actitud de nuestros dos Maestros Barberos: Pablo Veloso & Lucio Barreto. TRADICIÓN DE CABALLEROS]]></string>
+    <string name="modern_barber_text">Fade, cortes modernos, ritual de barba y todo el asesoramiento en tendencias masculinas por nuestro Barbero Tom Veloso.</string>
 </resources>
