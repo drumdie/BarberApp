@@ -20,10 +20,5 @@
             android:id="@+id/nav_services_layout"
             android:icon="@drawable/ic_menu_services"
             android:title="Servicios" />
-        <item
-            android:id="@+id/nav_membership_layout"
-            android:icon="@drawable/ic_menu_map"
-            android:title="Membresías" />
-
     </group>
 </menu>
